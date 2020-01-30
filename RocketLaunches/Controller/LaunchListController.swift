@@ -48,6 +48,7 @@ extension LaunchListController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! LaunchListCell
+        cell.textLabel?.text = launches[indexPath.row].name
         return cell
     }
 }
