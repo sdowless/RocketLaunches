@@ -26,15 +26,24 @@ class LaunchListController: UITableViewController {
         fetchLaunchData()
     }
     
+    // MARK: - Selectors
+    
+    @objc func handleRefresh() {
+        fetchLaunchData()
+    }
+    
     // MARK: - API
     
-    func fetchLaunchData() {
+    func fetchLaunchData() {        
         Service.shared.fetchLaunches { result in
             switch result {
             case .success(let launches):
                 self.launches = launches
+                launches.forEach({ print("DEBUG: Image url is \($0.rocket.imageURL)") })
+                self.refreshControl?.endRefreshing()
             case .failure(let error):
                 self.presentAlertController(withTitle: "Error", message: error.localizedDescription)
+                self.refreshControl?.endRefreshing()
             }
         }
     }
@@ -43,6 +52,10 @@ class LaunchListController: UITableViewController {
     
     func configureUI() {
         navigationItem.title = "Launches"
+        
+        tableView.rowHeight = 80
+        tableView.refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
 }
 
@@ -55,7 +68,7 @@ extension LaunchListController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! LaunchListCell
-        cell.textLabel?.text = launches[indexPath.row].name
+        cell.configureCell(withLaunch: launches[indexPath.row])
         return cell
     }
 }
@@ -73,6 +86,8 @@ extension LaunchListController {
 
 extension LaunchListController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
         guard segue.identifier == "ShowLaunchDetails" else { return }
         guard let controller = segue.destination as? LaunchDetailController else { return }
         controller.launch = sender as? Launch

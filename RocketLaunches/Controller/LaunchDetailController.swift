@@ -24,6 +24,6 @@ class LaunchDetailController: UIViewController {
     // MARK: - Helpers
     
     func configureUI() {
-        navigationItem.title = "Launch Details"
+        
     }
 }

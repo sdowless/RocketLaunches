@@ -6,6 +6,7 @@
 //  Copyright © 2020 Stephan Dowless. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 enum APIError: Error, CustomStringConvertible {
@@ -47,17 +48,28 @@ struct Service {
             }
             
             guard let data = data else { return }
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
             
             DispatchQueue.main.async {
                 do {
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .secondsSince1970
                     let launches = try decoder.decode(Launches.self, from: data)
                     completion(.success(launches.launches))
-                } catch {
+                } catch let error {
                     completion(.failure(error))
                 }
-            }            
+            }
         }.resume()
+    }
+    
+    func fetchImage(withUrl url: URL, completion: @escaping(UIImage) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            guard let data = try? Data(contentsOf: url) else { return }
+            guard let image = UIImage(data: data) else { return }
+            
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
     }
 }

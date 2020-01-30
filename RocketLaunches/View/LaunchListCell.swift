@@ -9,16 +9,16 @@
 import UIKit
 
 class LaunchListCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    // MARK: - Properties
+    
+    @IBOutlet weak var rocketImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    func configureCell(withLaunch launch: Launch) {
+        guard let imageUrl = launch.rocket.imageURL else { return }
+        rocketImageView.loadImage(withUrl: imageUrl)
+        nameLabel.text = launch.name
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }

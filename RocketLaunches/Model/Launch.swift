@@ -14,6 +14,12 @@ struct Launch: Decodable {
     let missions: [Mission]
     let wsstamp: Date
     let westamp: Date
+    let rocket: Rocket
+}
+
+struct Rocket: Decodable {
+    let name: String
+    let imageURL: String?
 }
 
 struct Mission: Decodable {
