@@ -14,10 +14,14 @@ class LaunchListCell: UITableViewCell {
     
     @IBOutlet weak var rocketImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var missionCountLabel: UILabel!
+    
+    // MARK: - Helpers
     
     func configureCell(withLaunch launch: Launch) {
-        guard let imageUrl = launch.rocket.imageURL else { return }
-        rocketImageView.loadImage(withUrl: imageUrl)
+        rocketImageView.layer.cornerRadius = rocketImageView.frame.height / 2
+        rocketImageView.loadImage(withUrl: launch.rocket.imageURL)
+        missionCountLabel.text = "Missions: \(launch.missions.count)"
         nameLabel.text = launch.name
     }
     

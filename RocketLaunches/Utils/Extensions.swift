@@ -25,7 +25,10 @@ extension UIImageView {
         } else {
             guard let imageUrl = URL(string: url) else { return }
             
-            Service.shared.fetchImage(withUrl: imageUrl, completion: { self.image = $0 })
+            Service.shared.fetchImage(withUrl: imageUrl) { [weak self] image in
+                imageCache.setObject(image, forKey: url as NSString)
+                self?.image = image
+            }
         }
     }
 }

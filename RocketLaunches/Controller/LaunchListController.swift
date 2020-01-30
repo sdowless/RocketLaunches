@@ -53,7 +53,7 @@ class LaunchListController: UITableViewController {
     func configureUI() {
         navigationItem.title = "Launches"
         
-        tableView.rowHeight = 80
+        tableView.rowHeight = 100
         tableView.refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }

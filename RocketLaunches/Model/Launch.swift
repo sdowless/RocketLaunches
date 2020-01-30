@@ -19,7 +19,7 @@ struct Launch: Decodable {
 
 struct Rocket: Decodable {
     let name: String
-    let imageURL: String?
+    let imageURL: String
 }
 
 struct Mission: Decodable {
