@@ -11,7 +11,37 @@ import Foundation
 struct Service {
     static let shared = Service()
     
-    func fetchLaunches(completion: @escaping() -> Void) {
+    private let launchCount = 20
+    
+    private var url: URL? {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "launchlibrary.net"
+        components.path = "/1.4/launch/next/\(launchCount)"
         
+        return components.url
+    }
+    
+    
+    func fetchLaunches(completion: @escaping(Result<[Launch], Error>) -> Void) {
+        guard let url = url else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let launches = try JSONDecoder().decode(Launches.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(launches.launches))
+                }
+            } catch let error {
+                completion(.failure(error))
+            }
+        }.resume()
     }
 }

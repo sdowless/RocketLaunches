@@ -13,6 +13,6 @@ struct Launch: Decodable {
     let name: String
 }
 
-struct Luanches: Decodable {
+struct Launches: Decodable {
     let launches: [Launch]
 }

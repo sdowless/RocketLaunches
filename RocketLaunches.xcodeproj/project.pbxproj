@@ -18,6 +18,7 @@
 		2387DD7123E3468E00152573 /* LaunchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7023E3468E00152573 /* LaunchListCell.swift */; };
 		2387DD7323E355A200152573 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7223E355A200152573 /* Service.swift */; };
 		2387DD7523E355D200152573 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7423E355D200152573 /* Launch.swift */; };
+		2387DD7723E35E9800152573 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7623E35E9800152573 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		2387DD7023E3468E00152573 /* LaunchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListCell.swift; sourceTree = "<group>"; };
 		2387DD7223E355A200152573 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2387DD7423E355D200152573 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		2387DD7623E35E9800152573 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		2387DD6B23E342A100152573 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2387DD7623E35E9800152573 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			files = (
 				2387DD6D23E3430100152573 /* LaunchListController.swift in Sources */,
 				2387DD3723E3425800152573 /* AppDelegate.swift in Sources */,
+				2387DD7723E35E9800152573 /* Extensions.swift in Sources */,
 				2387DD7323E355A200152573 /* Service.swift in Sources */,
 				2387DD7123E3468E00152573 /* LaunchListCell.swift in Sources */,
 				2387DD7523E355D200152573 /* Launch.swift in Sources */,
