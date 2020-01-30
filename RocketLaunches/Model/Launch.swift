@@ -11,6 +11,13 @@ import Foundation
 struct Launch: Decodable {
     let id: Int
     let name: String
+    let missions: [Mission]
+}
+
+struct Mission: Decodable {
+    let id: Int
+    let name: String
+    let description: String
 }
 
 struct Launches: Decodable {

@@ -22,6 +22,7 @@ class LaunchListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         fetchLaunchData()
     }
     
@@ -32,6 +33,7 @@ class LaunchListController: UITableViewController {
             switch result {
             case .success(let launches):
                 self.launches = launches
+                print("DEBUG: Launch missions \(launches[0].missions)")
             case .failure(let error):
                 self.presentAlertController(withTitle: "Error", message: error.localizedDescription)
             }
@@ -39,6 +41,10 @@ class LaunchListController: UITableViewController {
     }
     
     // MARK: - Helpers
+    
+    func configureUI() {
+        navigationItem.title = "Launches"
+    }
 }
 
 extension LaunchListController {

@@ -8,6 +8,22 @@
 
 import Foundation
 
+enum APIError: Error, CustomStringConvertible {
+    case requestFailed
+    case jsonParsingFailure
+    case invalidData
+    case responseUnsuccessful
+    
+    var description: String {
+        switch self {
+        case .requestFailed: return "Request Failed"
+        case .invalidData: return "Invalid Data"
+        case .responseUnsuccessful: return "Response Unsuccessful"
+        case .jsonParsingFailure: return "JSON Parsing Failure"
+        }
+    }
+}
+
 struct Service {
     static let shared = Service()
     
@@ -18,7 +34,6 @@ struct Service {
         components.scheme = "https"
         components.host = "launchlibrary.net"
         components.path = "/1.4/launch/next/\(launchCount)"
-        
         return components.url
     }
     
@@ -34,14 +49,14 @@ struct Service {
             
             guard let data = data else { return }
             
-            do {
-                let launches = try JSONDecoder().decode(Launches.self, from: data)
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                do {
+                    let launches = try JSONDecoder().decode(Launches.self, from: data)
                     completion(.success(launches.launches))
+                } catch {
+                    completion(.failure(error))
                 }
-            } catch let error {
-                completion(.failure(error))
-            }
+            }            
         }.resume()
     }
 }
