@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,10 +32,29 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="I1G-Zo-TKe"/>
+                    <connections>
+                        <segue destination="7JQ-98-yNU" kind="show" identifier="ShowLaunchDetails" id="ZuT-qm-aFg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5d-l8-rbc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="742.02898550724649" y="138.61607142857142"/>
+        </scene>
+        <!--Launch Detail Controller-->
+        <scene sceneID="Lc4-oG-ENo">
+            <objects>
+                <viewController id="7JQ-98-yNU" customClass="LaunchDetailController" customModule="RocketLaunches" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BGu-74-7vX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="4r9-N4-lNu"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wgp-l4-tnx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNm-03-DRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1699" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xMn-UA-y3a">

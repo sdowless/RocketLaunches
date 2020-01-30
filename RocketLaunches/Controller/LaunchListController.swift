@@ -46,6 +46,8 @@ class LaunchListController: UITableViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension LaunchListController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return launches.count
@@ -55,5 +57,24 @@ extension LaunchListController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! LaunchListCell
         cell.textLabel?.text = launches[indexPath.row].name
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension LaunchListController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let launch = launches[indexPath.row]
+        performSegue(withIdentifier: "ShowLaunchDetails", sender: launch)
+    }
+}
+
+// MARK: - Navigation
+
+extension LaunchListController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ShowLaunchDetails" else { return }
+        guard let controller = segue.destination as? LaunchDetailController else { return }
+        controller.launch = sender as? Launch
     }
 }

@@ -19,6 +19,7 @@
 		2387DD7323E355A200152573 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7223E355A200152573 /* Service.swift */; };
 		2387DD7523E355D200152573 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7423E355D200152573 /* Launch.swift */; };
 		2387DD7723E35E9800152573 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7623E35E9800152573 /* Extensions.swift */; };
+		2387DD7A23E37CFB00152573 /* LaunchDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7923E37CFB00152573 /* LaunchDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2387DD7223E355A200152573 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2387DD7423E355D200152573 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		2387DD7623E35E9800152573 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2387DD7923E37CFB00152573 /* LaunchDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				2387DD6C23E3430100152573 /* LaunchListController.swift */,
+				2387DD7923E37CFB00152573 /* LaunchDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2387DD6D23E3430100152573 /* LaunchListController.swift in Sources */,
+				2387DD7A23E37CFB00152573 /* LaunchDetailController.swift in Sources */,
 				2387DD3723E3425800152573 /* AppDelegate.swift in Sources */,
 				2387DD7723E35E9800152573 /* Extensions.swift in Sources */,
 				2387DD7323E355A200152573 /* Service.swift in Sources */,
