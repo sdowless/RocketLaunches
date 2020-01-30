@@ -37,7 +37,6 @@ struct Service {
         return components.url
     }
     
-    
     func fetchLaunches(completion: @escaping(Result<[Launch], Error>) -> Void) {
         guard let url = url else { return }
         
@@ -51,7 +50,9 @@ struct Service {
             
             DispatchQueue.main.async {
                 do {
-                    let launches = try JSONDecoder().decode(Launches.self, from: data)
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .secondsSince1970
+                    let launches = try decoder.decode(Launches.self, from: data)
                     completion(.success(launches.launches))
                 } catch {
                     completion(.failure(error))

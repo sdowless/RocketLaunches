@@ -12,6 +12,8 @@ struct Launch: Decodable {
     let id: Int
     let name: String
     let missions: [Mission]
+    let wsstamp: Date
+    let westamp: Date
 }
 
 struct Mission: Decodable {

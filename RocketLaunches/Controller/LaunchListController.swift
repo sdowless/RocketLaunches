@@ -33,7 +33,6 @@ class LaunchListController: UITableViewController {
             switch result {
             case .success(let launches):
                 self.launches = launches
-                print("DEBUG: Launch missions \(launches[0].missions)")
             case .failure(let error):
                 self.presentAlertController(withTitle: "Error", message: error.localizedDescription)
             }
