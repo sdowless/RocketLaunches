@@ -51,9 +51,9 @@ class LaunchListController: UITableViewController {
     // MARK: - Helpers
     
     func configureUI() {
-        navigationItem.title = "Launches"
+        navigationController?.navigationBar.tintColor = .black
         
-        tableView.rowHeight = 100
+        tableView.rowHeight = 104
         tableView.refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
