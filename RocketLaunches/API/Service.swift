@@ -42,6 +42,7 @@ struct Service {
         guard let url = url else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
             if let error = error {
                 completion(.failure(error))
                 return
@@ -51,13 +52,11 @@ struct Service {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .secondsSince1970
             
-            DispatchQueue.main.async {
-                do {
-                    let launches = try decoder.decode(Launches.self, from: data)
-                    completion(.success(launches.launches))
-                } catch let error {
-                    completion(.failure(error))
-                }
+           do {
+                let launches = try decoder.decode(Launches.self, from: data)
+                completion(.success(launches.launches))
+            } catch let error {
+                completion(.failure(error))
             }
         }.resume()
     }

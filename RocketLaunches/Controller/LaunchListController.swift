@@ -36,14 +36,15 @@ class LaunchListController: UITableViewController {
     
     func fetchLaunchData() {        
         Service.shared.fetchLaunches { result in
-            switch result {
-            case .success(let launches):
-                self.launches = launches
-                launches.forEach({ print("DEBUG: Image url is \($0.rocket.imageURL)") })
-                self.refreshControl?.endRefreshing()
-            case .failure(let error):
-                self.presentAlertController(withTitle: "Error", message: error.localizedDescription)
-                self.refreshControl?.endRefreshing()
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let launches):
+                    self.launches = launches
+                    self.refreshControl?.endRefreshing()
+                case .failure(let error):
+                    self.presentAlertController(withTitle: "Error", message: error.localizedDescription)
+                    self.refreshControl?.endRefreshing()
+                }
             }
         }
     }
