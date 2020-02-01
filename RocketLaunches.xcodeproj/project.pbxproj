@@ -20,6 +20,7 @@
 		2387DD7523E355D200152573 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7423E355D200152573 /* Launch.swift */; };
 		2387DD7723E35E9800152573 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7623E35E9800152573 /* Extensions.swift */; };
 		2387DD7A23E37CFB00152573 /* LaunchDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7923E37CFB00152573 /* LaunchDetailController.swift */; };
+		23B391F223E4DA0E00D3D0E0 /* SharedDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B391F123E4DA0E00D3D0E0 /* SharedDateFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,9 @@
 		2387DD7423E355D200152573 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		2387DD7623E35E9800152573 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2387DD7923E37CFB00152573 /* LaunchDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailController.swift; sourceTree = "<group>"; };
+		23B391EF23E4D97F00D3D0E0 /* SharedDateFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedDateFormatter.h; sourceTree = "<group>"; };
+		23B391F023E4DA0D00D3D0E0 /* RocketLaunches-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RocketLaunches-Bridging-Header.h"; sourceTree = "<group>"; };
+		23B391F123E4DA0E00D3D0E0 /* SharedDateFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedDateFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,9 @@
 			isa = PBXGroup;
 			children = (
 				2387DD7623E35E9800152573 /* Extensions.swift */,
+				23B391EF23E4D97F00D3D0E0 /* SharedDateFormatter.h */,
+				23B391F123E4DA0E00D3D0E0 /* SharedDateFormatter.m */,
+				23B391F023E4DA0D00D3D0E0 /* RocketLaunches-Bridging-Header.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -259,6 +266,7 @@
 				TargetAttributes = {
 					2387DD3223E3425700152573 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					2387DD4823E3425B00152573 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -327,6 +335,7 @@
 				2387DD3723E3425800152573 /* AppDelegate.swift in Sources */,
 				2387DD7723E35E9800152573 /* Extensions.swift in Sources */,
 				2387DD7323E355A200152573 /* Service.swift in Sources */,
+				23B391F223E4DA0E00D3D0E0 /* SharedDateFormatter.m in Sources */,
 				2387DD7123E3468E00152573 /* LaunchListCell.swift in Sources */,
 				2387DD7523E355D200152573 /* Launch.swift in Sources */,
 				2387DD3923E3425800152573 /* SceneDelegate.swift in Sources */,
@@ -502,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LF78THV97C;
 				INFOPLIST_FILE = RocketLaunches/Info.plist;
@@ -511,6 +521,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephandowless.RocketLaunches;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RocketLaunches/Utils/RocketLaunches-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -520,6 +532,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LF78THV97C;
 				INFOPLIST_FILE = RocketLaunches/Info.plist;
@@ -529,6 +542,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephandowless.RocketLaunches;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RocketLaunches/Utils/RocketLaunches-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

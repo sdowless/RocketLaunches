@@ -15,6 +15,16 @@ struct Launch: Decodable {
     let wsstamp: Date
     let westamp: Date
     let rocket: Rocket
+    let location: Location
+}
+
+struct Location: Decodable {
+    let name: String
+    let pads: [Pads]
+}
+
+struct Pads: Decodable {
+    let name: String
 }
 
 struct Rocket: Decodable {

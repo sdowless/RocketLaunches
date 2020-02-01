@@ -17,22 +17,17 @@ class LaunchListCell: UITableViewCell {
     @IBOutlet weak var missionCountLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     
-    private let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        return formatter
-    }()
+    private let formatter = SharedDateFormatter.shared().shortDateFormatter
     
     // MARK: - Helpers
     
     func configureCell(withLaunch launch: Launch) {
         rocketImageView.layer.cornerRadius = rocketImageView.frame.height / 2
-        
+                
         rocketImageView.loadImage(withUrl: launch.rocket.imageURL)
         missionCountLabel.text = "Missions: \(launch.missions.count)"
-        startDateLabel.text = "Launch Window: \(dateFormatter.string(from: launch.wsstamp))"
-        startDateLabel.text! += " - \(dateFormatter.string(from: launch.westamp))"
+        startDateLabel.text = "Launch Window: \(formatter.string(from: launch.wsstamp))"
+        startDateLabel.text! += " - \(formatter.string(from: launch.westamp))"
         nameLabel.text = launch.name
     }
 }
