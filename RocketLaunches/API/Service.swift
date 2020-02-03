@@ -38,22 +38,25 @@ struct Service {
         return components.url
     }
     
+    private let decoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .secondsSince1970
+        return decoder
+    }()
+    
     func fetchLaunches(completion: @escaping(Result<[Launch], Error>) -> Void) {
         guard let url = url else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
             if let error = error {
                 completion(.failure(error))
                 return
             }
             
             guard let data = data else { return }
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .secondsSince1970
             
-           do {
-                let launches = try decoder.decode(Launches.self, from: data)
+            do {
+                let launches = try self.decoder.decode(Launches.self, from: data)
                 completion(.success(launches.launches))
             } catch let error {
                 completion(.failure(error))

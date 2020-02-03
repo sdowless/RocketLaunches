@@ -40,12 +40,15 @@ class LaunchDetailController: UIViewController {
     
     func loadLaunchData() {
         guard let launch = launch else { return }
-        guard let mission = launch.missions.first else { return }
+                        
+        if let mission = launch.missions.first {
+            missionNameLabel.text = mission.name
+            missionDetailLabel.text = mission.description
+        }
         
         rocketImageView.loadImage(withUrl: launch.rocket.imageURL)
         nameLabel.text = launch.name
-        missionNameLabel.text = mission.name
-        missionDetailLabel.text = mission.description
+
         rocketNameLabel.text = launch.rocket.name
         locationNameLabel.text = launch.location.name
         locationDetailLabel.text = launch.location.pads.first?.name

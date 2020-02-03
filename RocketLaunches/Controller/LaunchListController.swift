@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "LaunchListCell"
+private let segueIdentifier = "ShowLaunchDetails"
 
 class LaunchListController: UITableViewController {
     
@@ -79,7 +80,7 @@ extension LaunchListController {
 extension LaunchListController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let launch = launches[indexPath.row]
-        performSegue(withIdentifier: "ShowLaunchDetails", sender: launch)
+        performSegue(withIdentifier: segueIdentifier, sender: launch)
     }
 }
 
@@ -88,8 +89,7 @@ extension LaunchListController {
 extension LaunchListController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
-        guard segue.identifier == "ShowLaunchDetails" else { return }
+        guard segue.identifier == segueIdentifier else { return }
         guard let controller = segue.destination as? LaunchDetailController else { return }
         controller.launch = sender as? Launch
     }
