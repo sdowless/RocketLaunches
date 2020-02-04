@@ -72,13 +72,21 @@ class Service {
         }.resume()
     }
     
-    func fetchImage(withUrl url: URL, completion: @escaping(UIImage) -> Void) {
+    func fetchImage(withUrl url: URL, completion: @escaping(Result<UIImage, APIError>) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            guard let data = try? Data(contentsOf: url) else { return }
-            guard let image = UIImage(data: data) else { return }
+            
+            guard let data = try? Data(contentsOf: url) else {
+                completion(.failure(.invalidData))
+                return
+            }
+            
+            guard let image = UIImage(data: data) else {
+                completion(.failure(.invalidData))
+                return
+            }
             
             DispatchQueue.main.async {
-                completion(image)
+                completion(.success(image))
             }
         }
     }

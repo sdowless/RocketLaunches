@@ -104,4 +104,49 @@ class APITests: XCTestCase {
             XCTAssertNotNil(errorResponse)
         }
     }
+    
+    func testGetLaunchImageSuccess() {
+        let mockURLSession = MockURLSession(data: nil, response: nil, error: nil)
+        let mockService = MockService()
+        mockService.session = mockURLSession
+        
+        var imageResult: UIImage?
+        let imageExpectation = expectation(description: "image")
+        
+        let imageUrl = "https://s3.amazonaws.com/launchlibrary/RocketImages/placeholder_1920.png"
+        
+        mockService.getImageWithMockSession(withUrl: imageUrl) { result in
+            if case .success(let image) = result {
+                imageResult = image
+                imageExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            XCTAssertNotNil(imageResult)
+        }
+    }
+    
+    func testGetLaunchImageInvalidURL() {
+        let mockURLSession = MockURLSession(data: nil, response: nil, error: nil)
+        let mockService = MockService()
+        mockService.session = mockURLSession
+        
+        let errorExpectation = expectation(description: "error")
+        var errorResponse: Error?
+        
+        let imageUrl = "invalidUrl"
+        
+        mockService.getImageWithMockSession(withUrl: imageUrl) { result in
+            if case .failure(let error) = result {
+                errorExpectation.fulfill()
+                errorResponse = error
+            }
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            XCTAssertNotNil(errorResponse)
+        }
+
+    }
 }

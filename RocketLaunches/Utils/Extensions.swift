@@ -25,9 +25,15 @@ extension UIImageView {
         } else {
             guard let imageUrl = URL(string: url) else { return }
             
-            Service.shared.fetchImage(withUrl: imageUrl) { [weak self] image in
-                imageCache.setObject(image, forKey: url as NSString)
-                self?.image = image
+            Service.shared.fetchImage(withUrl: imageUrl) { [weak self] result in
+                switch result {
+                case .success(let image):
+                    imageCache.setObject(image, forKey: url as NSString)
+                    self?.image = image
+                case .failure(let error):
+                    print("DEBUG: Failed to fetch image with error \(error.localizedDescription)")
+                }
+                
             }
         }
     }

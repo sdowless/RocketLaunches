@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class MockService: Service {
     var session: URLSession!
@@ -33,6 +34,11 @@ class MockService: Service {
                 completion(.failure(error))
             }
         }.resume()
+    }
+    
+    func getImageWithMockSession(withUrl url: String, completion: @escaping(Result<UIImage, APIError>) -> Void) {
+        guard let url = URL(string: url) else { return }
+        fetchImage(withUrl: url, completion: completion)
     }
 }
 
