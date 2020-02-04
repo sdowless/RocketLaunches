@@ -27,6 +27,12 @@ class RocketLaunchesUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        
+        let firstCell = app.tables.firstMatch.cells.firstMatch
+        firstCell.tap()
+        
+        let backButton = app.navigationBars.buttons.element(boundBy: 0)
+        backButton.tap()
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

@@ -10,17 +10,19 @@ import UIKit
 import Foundation
 
 enum APIError: Error, CustomStringConvertible {
-    case requestFailed
+    case networkError
+    case serverError
     case jsonParsingFailure
     case invalidData
-    case responseUnsuccessful
+    case clientError(Error)
     
     var description: String {
         switch self {
-        case .requestFailed: return "Request Failed"
-        case .invalidData: return "Invalid Data"
-        case .responseUnsuccessful: return "Response Unsuccessful"
-        case .jsonParsingFailure: return "JSON Parsing Failure"
+        case .networkError: return "Unable to establish a network connection"
+        case .serverError: return "Unable to retrieve data from the server"
+        case .invalidData: return "The data received from the server is not valid"
+        case .clientError(let error): return "Something went wrong: \(error.localizedDescription)"
+        case .jsonParsingFailure: return "Unable to process the incoming data from the server"
         }
     }
 }
@@ -45,22 +47,33 @@ class Service {
         return decoder
     }()
     
-    func fetchLaunches(completion: @escaping(Result<[Launch], Error>) -> Void) {
+    func fetchLaunches(completion: @escaping(Result<[Launch], APIError>) -> Void) {
         guard let url = _url else { return }
                 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
+            guard let response = response as? HTTPURLResponse else {
+                completion(.failure(.networkError))
                 return
             }
             
-            guard let data = data else { return }
+            if response.statusCode != 200 {
+                completion(.failure(.serverError))
+            }
+            
+            if let error = error {
+                completion(.failure(.clientError(error)))
+            }
+            
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
             
             do {
                 let launches = try self.decoder.decode(Launches.self, from: data)
                 completion(.success(launches.launches))
-            } catch let error {
-                completion(.failure(error))
+            } catch {
+                completion(.failure(.jsonParsingFailure))
             }
         }.resume()
     }

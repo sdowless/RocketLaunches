@@ -43,7 +43,7 @@ class LaunchListController: UITableViewController {
                     self.launches = launches
                     self.refreshControl?.endRefreshing()
                 case .failure(let error):
-                    self.presentAlertController(withTitle: "Error", message: error.localizedDescription)
+                    self.presentAlertController(withTitle: "Error", message: error.description)
                     self.refreshControl?.endRefreshing()
                 }
             }
