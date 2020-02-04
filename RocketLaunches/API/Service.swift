@@ -41,21 +41,6 @@ class Service {
         return components.url
     }
     
-    private lazy var decoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(isoFormatter)
-        return decoder
-    }()
-    
-    private let isoFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        return formatter
-    }()
-    
     func fetchLaunches(completion: @escaping(Result<[Launch], APIError>) -> Void) {
         guard let url = _url else { return }
                 
@@ -79,7 +64,7 @@ class Service {
             }
             
             do {
-                let launches = try self.decoder.decode(Launches.self, from: data)
+                let launches = try LaunchDecoder().decode(Launches.self, from: data)
                 completion(.success(launches.launches))
             } catch {
                 completion(.failure(.jsonParsingFailure))

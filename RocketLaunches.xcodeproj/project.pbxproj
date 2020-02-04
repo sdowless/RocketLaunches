@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		236909A723E8E388004998F6 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236909A623E8E388004998F6 /* APITests.swift */; };
 		236909AB23E8F379004998F6 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236909AA23E8F379004998F6 /* MockService.swift */; };
+		236909AD23E9282D004998F6 /* LaunchDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236909AC23E9282D004998F6 /* LaunchDecoder.swift */; };
 		2374CDF723E8B761001BF228 /* LaunchDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374CDF623E8B761001BF228 /* LaunchDetailsController.swift */; };
 		2374CDF923E8B80D001BF228 /* LaunchDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374CDF823E8B80D001BF228 /* LaunchDetailsCell.swift */; };
 		2374CDFB23E8B9DC001BF228 /* LaunchDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2374CDFA23E8B9DC001BF228 /* LaunchDetailsHeader.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		236909A623E8E388004998F6 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		236909AA23E8F379004998F6 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		236909AC23E9282D004998F6 /* LaunchDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDecoder.swift; sourceTree = "<group>"; };
 		2374CDF623E8B761001BF228 /* LaunchDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsController.swift; sourceTree = "<group>"; };
 		2374CDF823E8B80D001BF228 /* LaunchDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsCell.swift; sourceTree = "<group>"; };
 		2374CDFA23E8B9DC001BF228 /* LaunchDetailsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailsHeader.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				23B391EF23E4D97F00D3D0E0 /* SharedDateFormatter.h */,
 				23B391F123E4DA0E00D3D0E0 /* SharedDateFormatter.m */,
 				23B391F023E4DA0D00D3D0E0 /* RocketLaunches-Bridging-Header.h */,
+				236909AC23E9282D004998F6 /* LaunchDecoder.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				2387DD7523E355D200152573 /* Launch.swift in Sources */,
 				2387DD3923E3425800152573 /* SceneDelegate.swift in Sources */,
 				236909AB23E8F379004998F6 /* MockService.swift in Sources */,
+				236909AD23E9282D004998F6 /* LaunchDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
