@@ -36,15 +36,15 @@ class LaunchListController: UITableViewController {
     // MARK: - API
     
     func fetchLaunchData() {        
-        Service.shared.fetchLaunches { result in
+        Service.shared.fetchLaunches { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let launches):
-                    self.launches = launches
-                    self.refreshControl?.endRefreshing()
+                    self?.launches = launches
+                    self?.refreshControl?.endRefreshing()
                 case .failure(let error):
-                    self.presentAlertController(withTitle: "Error", message: error.description)
-                    self.refreshControl?.endRefreshing()
+                    self?.presentAlertController(withTitle: "Error", message: error.description)
+                    self?.refreshControl?.endRefreshing()
                 }
             }
         }

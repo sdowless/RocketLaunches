@@ -124,7 +124,6 @@
 				2387DD6B23E342A100152573 /* Utils */,
 				2387DD6A23E3428E00152573 /* Model */,
 				2387DD6923E3428C00152573 /* View */,
-				2387DD6823E3428A00152573 /* ViewModel */,
 				2387DD6723E3428800152573 /* Controller */,
 				2387DD6623E3428600152573 /* API */,
 				2387DD3623E3425800152573 /* AppDelegate.swift */,
@@ -171,13 +170,6 @@
 				2374CDF623E8B761001BF228 /* LaunchDetailsController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		2387DD6823E3428A00152573 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2387DD6923E3428C00152573 /* View */ = {
