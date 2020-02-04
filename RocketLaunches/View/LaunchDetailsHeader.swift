@@ -17,7 +17,7 @@ class LaunchDetailsHeader: UITableViewCell {
     
     func configure(withLaunch launch: Launch) {
         launchNameLabel.text = launch.name
-        launchDateLabel.text = "Launch Time: \(formatter.string(from: launch.wsstamp))"
+        launchDateLabel.text = "Launch Time: \(formatter.string(from: launch.isostart))"
     }
     
 }

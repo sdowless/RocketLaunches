@@ -17,7 +17,6 @@
 		2387DD3E23E3425800152573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2387DD3C23E3425800152573 /* Main.storyboard */; };
 		2387DD4023E3425B00152573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2387DD3F23E3425B00152573 /* Assets.xcassets */; };
 		2387DD4323E3425B00152573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2387DD4123E3425B00152573 /* LaunchScreen.storyboard */; };
-		2387DD4E23E3425B00152573 /* RocketLaunchesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD4D23E3425B00152573 /* RocketLaunchesTests.swift */; };
 		2387DD5923E3425B00152573 /* RocketLaunchesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD5823E3425B00152573 /* RocketLaunchesUITests.swift */; };
 		2387DD6D23E3430100152573 /* LaunchListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD6C23E3430100152573 /* LaunchListController.swift */; };
 		2387DD7123E3468E00152573 /* LaunchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2387DD7023E3468E00152573 /* LaunchListCell.swift */; };
@@ -58,7 +57,6 @@
 		2387DD4223E3425B00152573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2387DD4423E3425B00152573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2387DD4923E3425B00152573 /* RocketLaunchesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketLaunchesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2387DD4D23E3425B00152573 /* RocketLaunchesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchesTests.swift; sourceTree = "<group>"; };
 		2387DD4F23E3425B00152573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2387DD5423E3425B00152573 /* RocketLaunchesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketLaunchesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2387DD5823E3425B00152573 /* RocketLaunchesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchesUITests.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 		2387DD4C23E3425B00152573 /* RocketLaunchesTests */ = {
 			isa = PBXGroup;
 			children = (
-				2387DD4D23E3425B00152573 /* RocketLaunchesTests.swift */,
 				2387DD4F23E3425B00152573 /* Info.plist */,
 				236909A623E8E388004998F6 /* APITests.swift */,
 			);
@@ -362,7 +359,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				236909A723E8E388004998F6 /* APITests.swift in Sources */,
-				2387DD4E23E3425B00152573 /* RocketLaunchesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

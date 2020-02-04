@@ -26,8 +26,8 @@ class LaunchListCell: UITableViewCell {
                 
         rocketImageView.loadImage(withUrl: launch.rocket.imageURL)
         missionCountLabel.text = "Missions: \(launch.missions.count)"
-        startDateLabel.text = "Launch Window: \(formatter.string(from: launch.wsstamp))"
-        startDateLabel.text! += " - \(formatter.string(from: launch.westamp))"
+        startDateLabel.text = "Launch Window: \(formatter.string(from: launch.isostart))"
+        startDateLabel.text! += " - \(formatter.string(from: launch.isoend))"
         nameLabel.text = launch.name
     }
 }

@@ -51,7 +51,6 @@ class MockURLSession: URLSession {
     }
 }
 
-
 class MockTask: URLSessionDataTask {
     private let data: Data?
     private let urlResponse: URLResponse?
@@ -67,7 +66,8 @@ class MockTask: URLSessionDataTask {
     
     override func resume() {
         DispatchQueue.main.async {
-            self.completionHandler!(self.data, self.urlResponse, self.mockError)
+            guard let completionHandler = self.completionHandler else { return }
+            completionHandler(self.data, self.urlResponse, self.mockError)
         }
     }
 }

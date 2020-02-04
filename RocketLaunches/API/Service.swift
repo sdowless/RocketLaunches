@@ -41,10 +41,19 @@ class Service {
         return components.url
     }
     
-    private let decoder: JSONDecoder = {
+    private lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .secondsSince1970
+        decoder.dateDecodingStrategy = .formatted(isoFormatter)
         return decoder
+    }()
+    
+    private let isoFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
     }()
     
     func fetchLaunches(completion: @escaping(Result<[Launch], APIError>) -> Void) {
