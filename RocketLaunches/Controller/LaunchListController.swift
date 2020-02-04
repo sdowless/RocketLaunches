@@ -90,7 +90,7 @@ extension LaunchListController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard segue.identifier == segueIdentifier else { return }
-        guard let controller = segue.destination as? LaunchDetailController else { return }
+        guard let controller = segue.destination as? LaunchDetailsController else { return }
         controller.launch = sender as? Launch
     }
 }

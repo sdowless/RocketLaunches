@@ -25,12 +25,13 @@ enum APIError: Error, CustomStringConvertible {
     }
 }
 
-struct Service {
+class Service {
     static let shared = Service()
     
     private let launchCount = 20
+    var url: URL? { return _url }
     
-    private var url: URL? {
+    private var _url: URL? {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "launchlibrary.net"
@@ -45,8 +46,8 @@ struct Service {
     }()
     
     func fetchLaunches(completion: @escaping(Result<[Launch], Error>) -> Void) {
-        guard let url = url else { return }
-        
+        guard let url = _url else { return }
+                
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
@@ -75,3 +76,5 @@ struct Service {
         }
     }
 }
+
+

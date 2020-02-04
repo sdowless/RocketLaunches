@@ -8,6 +8,13 @@
 
 import Foundation
 
+struct LaunchDetails {
+    let imageName: String
+    let title: String
+    let primaryInfo: String
+    let secondaryInfo: String
+}
+
 struct Launch: Decodable {
     let id: Int
     let name: String
@@ -30,10 +37,10 @@ struct Pads: Decodable {
 struct Rocket: Decodable {
     let name: String
     let imageURL: String
+    let familyname: String
 }
 
 struct Mission: Decodable {
-    let id: Int
     let name: String
     let description: String
 }
